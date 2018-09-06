@@ -1,5 +1,5 @@
 <div class="home">
-		<div class="home_background" style="background-image:url(../assets/images/background.jpg)"></div>
+		<div class="home_background" style="background-image:url(../assets/images/about_back.jpg)"></div>
 			
 </div>
 <!-- <div class="find">
@@ -78,6 +78,8 @@
 								
                 <div class="item_text">{{l.packageDescription}}</div>
                 <button class="btn btn-danger" (click)=onBooked(l)>Book Now!</button>
+                <h6 *ngIf="has_Booked"><div class="alert alert-success"> You have successfully booked this package. We will get in touch with you!</div></h6>
+               
 								
 							</div>
 						</div>
