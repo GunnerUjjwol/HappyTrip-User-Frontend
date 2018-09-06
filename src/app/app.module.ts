@@ -13,6 +13,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PackagespageComponent } from './packagespage/packagespage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { UserdashboardNavComponent } from './userdashboard-nav/userdashboard-nav.component';
+import { UserdashboardBodyComponent } from './userdashboard-body/userdashboard-body.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { UserdashboardNavComponent } from './userdashboard-nav/userdashboard-nav
     ContactUsComponent,
     PackagespageComponent,
     RegistrationFormComponent,
-    UserdashboardNavComponent
+    UserdashboardNavComponent,
+    UserdashboardBodyComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { UserdashboardNavComponent } from './userdashboard-nav/userdashboard-nav
       {path: 'contact-us', component: ContactUsComponent},
       {path: 'packages', component: PackagespageComponent},
       {path: 'dashboard', component: UserdashboardNavComponent},
+      {path: 'profile', component: ProfileComponent, outlet:'profile'},
       {path: ' ', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', redirectTo: 'home', pathMatch: 'full'}
     ])
