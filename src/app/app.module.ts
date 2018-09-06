@@ -40,7 +40,9 @@ import { ProfileComponent } from './profile/profile.component';
       {path: 'contact-us', component: ContactUsComponent},
       {path: 'packages', component: PackagespageComponent},
       {path: 'dashboard', component: UserdashboardNavComponent},
-      {path: 'profile', component: ProfileComponent, outlet:'profile'},
+      
+      {path:'register',component:RegistrationFormComponent},
+      {path: 'profilepath', component: ProfileComponent, outlet:'profile'},
       {path: ' ', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', redirectTo: 'home', pathMatch: 'full'}
     ])

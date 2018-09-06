@@ -1,5 +1,5 @@
 
- <form #f = "ngForm" (ngSubmit) = "myfunc(f)">
+ <form #f = "ngForm" (ngSubmit) = "myfunc(f)" align="center">
   
   <div class="form-group">
         <label >Username</label><br>
@@ -21,6 +21,6 @@
         <a [routerLink]="['/register']" class="btn btn-link">Register</a>-->
        
     </div>  
-    <h6 text-align ="center"> If not signup please register </h6>
-    <input type="button" value="Register" class="btn btn-primary">
+    <!-- <h6 text-align ="center"> If not signup please register </h6>
+    <a [routerLink] = "['/register']">Register</a> -->
 </form>

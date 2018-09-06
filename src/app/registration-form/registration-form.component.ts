@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration-form',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-
-  constructor() { }
+  register(f){
+    console.log(f.value);
+    let obs = this.http.post("http://localhost:8090/Customers/add",f.value);
+    obs.subscribe(()=>{});
+  }
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
   }

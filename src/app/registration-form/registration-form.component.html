@@ -1,298 +1,152 @@
-
-
+<div class="container">
 
 <!------ Include the above in your HEAD tag ---------->
+ <form class="form-horizontal border "  #f="ngForm" (ngSubmit)="register(f)">
 
 
 
+        <div id="div_id_name" class="form-group required">
 
-<form 
-method="post"
-action=".">
+            <label for="id_name" class="control-label col-md-4 requiredField"> First Name<span class="asteriskField">*</span>
+            </label>
 
-<input
-type='hidden'
-name='csrfmiddlewaretoken'
-value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S'
-/>
+            <div class="controls col-md-8 ">
 
-<form
-class="form-horizontal"
-method="post"
->
+                <input class="input-md textinput textInput form-control" id="id_name" [(ngModel)]="firstName" name="firstName" placeholder="First name"
+                    style="margin-bottom: 10px" type="text" />
 
-                        
+            </div>
 
-                         <div
-id="div_id_name"
-class="form-group required">
+        </div>
+        <div id="div_id_name" class="form-group required">
 
-<label
-for="id_name"
-class="control-label col-md-4 requiredField"> First Name<span
-class="asteriskField">*</span>
-</label>
+            <label for="id_name" class="control-label col-md-4 requiredField"> Last Name<span class="asteriskField">*</span>
+            </label>
 
-<div
-class="controls col-md-8 ">
+            <div class="controls col-md-8 ">
 
-<input
-class="input-md textinput textInput form-control"
-id="id_name"
-name="name"
-placeholder="Frist name"
-style="margin-bottom: 10px"
-type="text"
-/>
+                <input class="input-md textinput textInput form-control" id="id_name" [(ngModel)]="lastName" name="lastName" placeholder="Last Name"
+                    style="margin-bottom: 10px" type="text" />
 
-</div>
+            </div>
 
-</div>
- <div
-id="div_id_name"
-class="form-group required">
+        </div>
 
-<label
-for="id_name"
-class="control-label col-md-4 requiredField"> Last Name<span
-class="asteriskField">*</span>
-</label>
+        <div id="div_id_gender" class="form-group required">
 
-<div
-class="controls col-md-8 ">
+            <label for="id_gender" class="control-label col-md-4 requiredField"> Gender<span class="asteriskField">*</span>
+            </label>
 
-<input
-class="input-md textinput textInput form-control"
-id="id_name"
-name="name"
-placeholder="Last Name"
-style="margin-bottom: 10px"
-type="text"
-/>
+            <div class="controls col-md-8 " style="margin-bottom: 10px">
 
-</div>
+                <label class="radio-inline">
+                    <input type="radio" [(ngModel)]="gender" name="gender" id="id_gender_1" value="M" style="margin-bottom: 10px">Male</label>
 
-</div>
+                <label class="radio-inline">
+                    <input type="radio" name="gender" id="id_gender_2" value="F" style="margin-bottom: 10px">Female
+                </label>
 
-                         <div
-id="div_id_gender"
-class="form-group required">
+            </div>
 
-<label
-for="id_gender"
-class="control-label col-md-4 requiredField"> Gender<span
-class="asteriskField">*</span>
-</label>
+        </div>
+        <div id="div_id_location" class="form-group required">
 
-<div
-class="controls col-md-8 "
-style="margin-bottom: 10px">
+            <label for="id_location" class="control-label col-md-4 requiredField"> Age<span class="asteriskField">*</span>
+            </label>
 
-<label
-class="radio-inline">
-<input 
-type="radio" 
-name="gender" 
-id="id_gender_1" 
-value="M" 
-style="margin-bottom: 10px">Male</label>
+            <div class="controls col-md-8 ">
 
-<label
-class="radio-inline">
-<input 
-type="radio" 
-name="gender" 
-id="id_gender_2" 
-value="F" 
-style="margin-bottom: 10px">Female
-</label>
+                <input class="input-md textinput textInput form-control" id="id_location" [(ngModel)]="age" name="age" placeholder="Age"
+                    style="margin-bottom: 10px" type="number" />
 
-</div>
+            </div>
 
-</div>
-<div
-id="div_id_location"
-class="form-group required">
+        </div>
 
-<label
-for="id_location"
-class="control-label col-md-4 requiredField"> Age<span
-class="asteriskField">*</span>
-</label>
+        <div id="div_id_location" class="form-group required">
 
-<div
-class="controls col-md-8 ">
+            <label for="id_location" class="control-label col-md-4 requiredField"> Address<span class="asteriskField">*</span>
+            </label>
 
-<input
-class="input-md textinput textInput form-control"
-id="id_location"
-name="location"
-placeholder="Age"
-style="margin-bottom: 10px"
-type="text"
-/>
+            <div class="controls col-md-8 ">
 
-</div>
+                <input class="input-md textinput textInput form-control" id="id_location" [(ngModel)]="address" name="address" placeholder="address"
+                    style="margin-bottom: 10px" type="text" />
 
-</div>
+            </div>
 
-                        <div
-id="div_id_location"
-class="form-group required">
+        </div>
 
-<label
-for="id_location"
-class="control-label col-md-4 requiredField"> Address<span
-class="asteriskField">*</span>
-</label>
+        <div id="div_id_number" class="form-group required">
 
-<div
-class="controls col-md-8 ">
+            <label for="id_number" class="control-label col-md-4 requiredField"> Mobile Number<span class="asteriskField">*</span>
+            </label>
 
-<input
-class="input-md textinput textInput form-control"
-id="id_location"
-name="location"
-placeholder="address"
-style="margin-bottom: 10px"
-type="text"
-/>
+            <div class="controls col-md-8 ">
+
+                <input class="input-md textinput textInput form-control" id="id_number" [(ngModel)]="phoneNo" name="phoneNo" placeholder="provide your contact number"
+                    style="margin-bottom: 10px" type="text" />
+
+            </div>
+
+        </div>
+
+        <div id="div_id_email" class="form-group required">
+
+            <label for="id_email" class="control-label col-md-4 requiredField"> E-mail<span class="asteriskField">*</span>
+            </label>
+
+            <div class="controls col-md-8 ">
+
+                <input class="input-md emailinput form-control" id="id_email" [(ngModel)]="email" name="email" placeholder="Your current email address"
+                    style="margin-bottom: 10px" type="email" />
+
+            </div>
+
+        </div>
+
+        <div id="div_id_password1" class="form-group required">
+
+            <label for="id_password1" class="control-label col-md-4 requiredField">Password<span class="asteriskField">*</span>
+            </label>
+
+            <div class="controls col-md-8 ">
+
+                <input class="input-md textinput textInput form-control" id="id_password1" name="password" [(ngModel)]="password" placeholder="Create a password"
+                    style="margin-bottom: 10px" type="password" />
+
+            </div>
+
+        </div>
+
+        <div id="div_id_password2" class="form-group required">
+
+            <label for="id_password2" class="control-label col-md-4 requiredField"> Re:password<span class="asteriskField">*</span>
+            </label>
+
+            <div class="controls col-md-8 ">
+
+                <input class="input-md textinput textInput form-control" id="id_password2" name="password2" placeholder="Confirm your password"
+                    style="margin-bottom: 10px" type="password" />
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <div class="aab controls col-md-4 "></div>
+
+            <div class="controls col-md-8 ">
+
+                <input type="submit" value="Signup" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+
+            </div>
+
+        </div>
+
+
+    </form>
 
 </div>
 
-</div>
-
-                        <div
-id="div_id_number"
-class="form-group required">
-
-<label
-for="id_number"
-class="control-label col-md-4 requiredField"> Mobile Number<span
-class="asteriskField">*</span>
-</label>
-
-<div
-class="controls col-md-8 ">
-
-<input
-class="input-md textinput textInput form-control"
-id="id_number"
-name="number"
-placeholder="provide your contact number"
-style="margin-bottom: 10px"
-type="text"
-/>
-
-</div>
-
-</div>
-
-<div
-id="div_id_email"
-class="form-group required">
-
-<label
-for="id_email"
-class="control-label col-md-4 requiredField"> E-mail<span
-class="asteriskField">*</span>
-</label>
-
-<div
-class="controls col-md-8 ">
-
-<input
-class="input-md emailinput form-control"
-id="id_email"
-name="email"
-placeholder="Your current email address"
-style="margin-bottom: 10px"
-type="email"
-/>
-
-</div>
-
-</div>
-
-<div
-id="div_id_password1"
-class="form-group required">
-
-<label
-for="id_password1"
-class="control-label col-md-4 requiredField">Password<span
-class="asteriskField">*</span>
-</label>
-
-<div
-class="controls col-md-8 ">
-
-<input
-class="input-md textinput textInput form-control"
-id="id_password1"
-name="password1"
-placeholder="Create a password"
-style="margin-bottom: 10px"
-type="password"
-/>
-
-</div>
-
-</div>
-
-<div
-id="div_id_password2"
-class="form-group required">
-
-<label
-for="id_password2"
-class="control-label col-md-4 requiredField"> Re:password<span
-class="asteriskField">*</span>
-</label>
-
-<div
-class="controls col-md-8 ">
-
-<input
-class="input-md textinput textInput form-control"
-id="id_password2"
-name="password2"
-placeholder="Confirm your password"
-style="margin-bottom: 10px"
-type="password"
-/>
-
-</div>
-
-</div>
-
-<div
-class="form-group">
-
-<div
-class="aab controls col-md-4 "></div>
-
-<div
-class="controls col-md-8 ">
-
-<input
-type="submit"
-name="Signup"
-value="Signup"
-class="btn btn-primary btn btn-info"
-id="submit-id-signup"
-/>
-
-</div>
-
-</div>
-
-
-</form>
-
-
-
-</form>
-
-
- 
