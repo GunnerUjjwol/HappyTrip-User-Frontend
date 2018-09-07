@@ -7,12 +7,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  register(f){
+  register(f) {
     console.log(f.value);
-    let obs = this.http.post("http://localhost:8090/Customers/add",f.value);
-    obs.subscribe(()=>{});
+    let obs = this.http.post("http://localhost:8090/Customers/add", f.value);
+    obs.subscribe(() => { });
   }
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }

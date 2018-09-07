@@ -3,36 +3,36 @@
 <link rel="stylesheet" href="../assets/css/custom.css">
 
 <div class="page">
-  <div class="page-content d-flex align-items-stretch"> 
+  <div class="page-content d-flex align-items-stretch">
 
 
-<!-- <div id="sidebar" class="page-content d-flex align-items-stretch h-100"> -->
-  <!-- Side Navbar -->
-  <nav class="side-navbar" style="min-height: 610px">
-    <!-- Sidebar Header-->
-    <div class="sidebar-header d-flex align-items-center">
-      <div class="title">
-        <h1 style="color: aliceblue">User Dashboard</h1>
+    <!-- <div id="sidebar" class="page-content d-flex align-items-stretch h-100"> -->
+    <!-- Side Navbar -->
+    <nav class="side-navbar" style="min-height: 610px">
+      <!-- Sidebar Header-->
+      <div class="sidebar-header d-flex align-items-center">
+        <div class="title">
+          <h1 style="color: aliceblue">User Dashboard</h1>
+        </div>
       </div>
-    </div>
-    <ul class="list-unstyled">
-      <li class="active"><a [routerLink]="[{outlets:{profile:['profile']}}]"><H5>My Profile </H5></a></li>
-      <li><a href="#"> <H5>Bookings</H5> </a></li>
-      <li><a href="#"> <H5>Logout</H5> </a></li>
-    </ul>
-  </nav>
+      <ul class="list-unstyled">
+        <li class="active"><a [routerLink]="[{outlets:{profile:['profile']}}]"><H5>My Profile </H5></a></li>
+        <li><a href="#"> <H5>Bookings</H5> </a></li>
+        <li><a href="#"> <H5>Logout</H5> </a></li>
+      </ul>
+    </nav>
 
-  <div class="content-inner">
+    <div class="content-inner">
       <app-userdashboard-body></app-userdashboard-body>
-    <!-- <section class="charts">
+      <!-- <section class="charts">
       <div class="container-fluid">
         <div class="row">
 
         </div>
       </div>
     </section> -->
+    </div>
   </div>
-</div>
 
 
 

@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-  has_Submitted='';
+  has_Submitted = '';
 
-  sendMessage(form){
+  sendMessage(form) {
     console.log(form.value);
-    this.has_Submitted='submitted';
-    let obs = this.http.post("http://localhost:8090/UserQuery/add",form.value);
-    obs.subscribe(()=>{
+    this.has_Submitted = 'submitted';
+    let obs = this.http.post("http://localhost:8090/UserQuery/add", form.value);
+    obs.subscribe(() => {
 
     })
   }
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }

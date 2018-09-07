@@ -1,50 +1,56 @@
-
 <div class="home">
-		<!-- Image by https://unsplash.com/@peecho -->
-		<div class="home_background parallax-window" style="background-image:url(../assets/images/vf.jpg)" ></div>
-		
-	</div>
+	<!-- Image by https://unsplash.com/@peecho -->
+	<div class="home_background parallax-window" style="background-image:url(../assets/images/vf.jpg)"></div>
+
+</div>
 
 <div class="contact" style="margin-left: 90px">
-    <link rel="stylesheet" type="text/css" href="../assets/css/contact_styles.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/contact_responsive.css">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="contact_title">Any Queries ? Contact us</div>
-					<div class="contact_subtitle">Get in touch</div>
-				</div>
+	<link rel="stylesheet" type="text/css" href="../assets/css/contact_styles.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/contact_responsive.css">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="contact_title">Any Queries ? Contact us</div>
+				<div class="contact_subtitle">Get in touch</div>
 			</div>
-			<div class="row contact_content">
-				<div class="col-lg-5">
-					<div class="contact_text">
-						<p>We are happy to asisst you. We have highly professional team to handle your queries and replies as soon as possible. </p>
-					</div>
-					<div class="contact_info">
-						<div class="contact_info_box">i</div>
-						<div class="contact_info_container">
-							<div class="contact_info_content">
-								<ul>
-									<li>Address: Hattisar , Kathmandu , Nepal</li>
-									<li>Phone: +977   01425639</li>
-									<li>Email: query@happytrip.com</li>
-								</ul>
-							</div>
-							
+		</div>
+		<div class="row contact_content">
+			<div class="col-lg-5">
+				<div class="contact_text">
+					<p>We are happy to asisst you. We have highly professional team to handle your queries and replies as soon as possible.
+						</p>
+				</div>
+				<div class="contact_info">
+					<div class="contact_info_box">i</div>
+					<div class="contact_info_container">
+						<div class="contact_info_content">
+							<ul>
+								<li>Address: Hattisar , Kathmandu , Nepal</li>
+								<li>Phone: +977 01425639</li>
+								<li>Email: query@happytrip.com</li>
+							</ul>
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-7">
-						<h4 *ngIf="has_Submitted"><div class="alert alert-success"> Your Query has been submitted. We will get in touch with you shortly</div></h4>
-					<div class="contact_form_container">
-						<form  #form = "ngForm" (ngSubmit) = "sendMessage(form); form.reset()" id="contact_form" class="clearfix">
-							<input name = "userName" [(ngModel)] = "userName" id="contact_input_name" class="contact_input contact_input_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-							<input name = "email" [(ngModel)] = "email" id="contact_input_email" class="contact_input contact_input_email" type="email" placeholder="E-mail" required="required" data-error="E-mail is required.">
-							<input name = "subject" [(ngModel)] = "subject" id="contact_input_subject" class="contact_input contact_input_subject" type="text" placeholder="Subject">
-							<textarea name = "message" [(ngModel)] = "message" id="contact_input_message" class="contact_message_input contact_input_message"  placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-							<button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>
-						</form>
+
 					</div>
 				</div>
 			</div>
-			<div class="row contact_map">
+			<div class="col-lg-7">
+				<h4 *ngIf="has_Submitted">
+					<div class="alert alert-success"> Your Query has been submitted. We will get in touch with you shortly</div>
+				</h4>
+				<div class="contact_form_container">
+					<form #form="ngForm" (ngSubmit)="sendMessage(form); form.reset()" id="contact_form" class="clearfix">
+						<input name="userName" [(ngModel)]="userName" id="contact_input_name" class="contact_input contact_input_name" type="text"
+						 placeholder="Name" required="required" data-error="Name is required.">
+						<input name="email" [(ngModel)]="email" id="contact_input_email" class="contact_input contact_input_email" type="email" placeholder="E-mail"
+						 required="required" data-error="E-mail is required.">
+						<input name="subject" [(ngModel)]="subject" id="contact_input_subject" class="contact_input contact_input_subject" type="text"
+						 placeholder="Subject">
+						<textarea name="message" [(ngModel)]="message" id="contact_input_message" class="contact_message_input contact_input_message"
+						 placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+						<button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row contact_map">

@@ -7,14 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home-body.component.css']
 })
 export class HomeBodyComponent implements OnInit {
-  list:any;
+  list: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    let obs=this.http.get("http://localhost:8090/Package/all");
-    obs.subscribe((response)=>{
-      this.list=response;
+    let obs = this.http.get("http://localhost:8090/Package/all");
+    obs.subscribe((response) => {
+      this.list = response;
       console.log(response);
     })
 
