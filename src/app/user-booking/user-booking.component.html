@@ -1,3 +1,26 @@
-<p>
-  user-booking works!
-</p>
+<div >
+    <label id="recentBookings"><h2>Your Recent Bookings</h2></label>
+    <hr>
+    <table>
+      <tr>
+        <th>Booking Date</th>
+        
+        <th>Location</th>
+        <th>Price</th>
+        <th>Booking Status</th>
+        
+        <th></th>
+       
+      </tr>
+      <tr *ngFor="let book of UserBookings">
+        <td>{{book.bookedDate}}</td>
+        
+        <td>{{book.location}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.bookedstatus}}</td>
+        
+        <th><button class="btn btn-danger" (click)="cancelPackage(package)">Cancel</button></th>
+        
+      </tr>
+    </table>
+  </div>

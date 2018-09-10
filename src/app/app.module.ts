@@ -15,6 +15,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { UserdashboardNavComponent } from './userdashboard-nav/userdashboard-nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserBookingComponent } from './user-booking/user-booking.component';
+import { TestFormComponent } from './test-form/test-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { UserBookingComponent } from './user-booking/user-booking.component';
     RegistrationFormComponent,
     UserdashboardNavComponent,
     ProfileComponent,
-    UserBookingComponent
+    UserBookingComponent,
+    TestFormComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { UserBookingComponent } from './user-booking/user-booking.component';
     RouterModule.forRoot([
       { path: 'about-us', component: AboutusPageComponent },
       { path: 'home', component: HomeBodyComponent },
+      { path: 'test',component:TestFormComponent},
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'packages', component: PackagespageComponent },
       { path: 'dashboard', component: UserdashboardNavComponent,

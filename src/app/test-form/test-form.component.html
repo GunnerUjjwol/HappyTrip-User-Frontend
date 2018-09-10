@@ -1,0 +1,5 @@
+<form #f = "ngForm" (ngSubmit) =  "setBooking(f)">
+  location<input type = "text" [(ngModel)] = "location" name = "location"><br>
+  price<input type = "text" [(ngModel)] = "price" name = "price"> <br>
+  <input type = "submit">
+</form>
