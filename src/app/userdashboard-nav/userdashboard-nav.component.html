@@ -12,18 +12,18 @@
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center">
         <div class="title">
-          <h1 style="color: aliceblue">User Dashboard</h1>
+          <h5 style="color: aliceblue">User Dashboard</h5>
         </div>
       </div>
       <ul class="list-unstyled">
-        <li class="active"><a [routerLink]="[{outlets:{profile:['profile']}}]"><H5>My Profile </H5></a></li>
-        <li><a href="#"> <H5>Bookings</H5> </a></li>
-        <li><a href="#"> <H5>Logout</H5> </a></li>
+        <li class="active" [routerLinkActive]="['active']"><a [routerLink]="['./profile']"><h6>My Profile </h6></a></li>
+        <li [routerLinkActive]="['active']"><a [routerLink]="['./bookings']"> <h6>Bookings</h6> </a></li>
+        <li [routerLinkActive]="['active']"><a href="#"> <h6>Logout</h6> </a></li>
       </ul>
     </nav>
 
     <div class="content-inner">
-      <app-userdashboard-body></app-userdashboard-body>
+      <router-outlet></router-outlet>
       <!-- <section class="charts">
       <div class="container-fluid">
         <div class="row">

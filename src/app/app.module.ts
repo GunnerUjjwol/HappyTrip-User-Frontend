@@ -13,8 +13,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PackagespageComponent } from './packagespage/packagespage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { UserdashboardNavComponent } from './userdashboard-nav/userdashboard-nav.component';
-import { UserdashboardBodyComponent } from './userdashboard-body/userdashboard-body.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserBookingComponent } from './user-booking/user-booking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
     PackagespageComponent,
     RegistrationFormComponent,
     UserdashboardNavComponent,
-    UserdashboardBodyComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserBookingComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +39,14 @@ import { ProfileComponent } from './profile/profile.component';
       { path: 'home', component: HomeBodyComponent },
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'packages', component: PackagespageComponent },
-      { path: 'dashboard', component: UserdashboardNavComponent },
-
+      { path: 'dashboard', component: UserdashboardNavComponent,
+          children: [
+            {path: '',redirectTo:'profile', pathMatch:'full'},
+            {path: 'profile', component: ProfileComponent},
+            {path: 'bookings', component: UserBookingComponent}
+          ]    
+    },
       { path: 'register', component: RegistrationFormComponent },
-      { path: 'profilepath', component: ProfileComponent, outlet: 'profile' },
       { path: ' ', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ])

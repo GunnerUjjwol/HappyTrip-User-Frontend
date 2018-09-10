@@ -16,13 +16,13 @@
           <!-- Main Navigation -->
           <nav class="main_nav ml-auto">
             <ul class="main_nav_list">
-              <li class="main_nav_item "><a href="#">Home</a></li>
-              <li class="main_nav_item "><a [routerLink]="['/about-us']">About us</a></li>
-              <li class="main_nav_item "><a [routerLink]="['/packages']">Package</a></li>
-              <li class="main_nav_item "><a [routerLink]="['/contact-us']">Contact</a></li>
-              <li class="main_nav_item "><a [routerLink]="['/dashboard']">Dashboard</a></li>
-              <li class="main_nav_item "><a data-toggle="modal" data-target="#exampleModal" href="login.html">Login</a></li>
-              <li class="main_nav_item "><a [routerLink]="['/register']">Register</a></li>
+              <li class="main_nav_item " [routerLinkActive]="['active']"><a [routerLink]="['/home']">Home</a></li>
+              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/about-us']">About us</a></li>
+              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/packages']">Package</a></li>
+              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/contact-us']">Contact</a></li>
+              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+              <li class="main_nav_item " ><a data-toggle="modal" data-target="#exampleModal" href="login.html">Login</a></li>
+              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/register']">Register</a></li>
             </ul>
           </nav>
 
@@ -72,6 +72,8 @@
       <div class="modal-body">
         <app-loginform></app-loginform>
       </div>
+      <div class="modal-footer">
+				<button class="form-control btn btn-primary">Log In</button>
     </div>
   </div>
 </div>
