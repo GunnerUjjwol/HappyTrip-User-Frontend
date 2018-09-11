@@ -1,89 +1,126 @@
 <div class="container">
-    <form class="form-horizontal " #f="ngForm" (ngSubmit)="register(f)">
-        <h3 class="text-danger">REGISTER HERE!</h3>
-        <div id="div_id_firstname" class="form-group required">
-            <label for="id_firstname" class="control-label col-md-4 requiredField"> First Name<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" #FName = "ngModel" id="id_firstname" [(ngModel)]="firstName" name="firstName" placeholder="First name"
-                    style="margin-bottom: 10px" type="text" required/>
-            </div>
-        </div>
-        
-        
-        <div *ngIf="FName.invalid && (FName.dirty || FName.touched)" class="alert alert-danger">Firstname is required</div>  
 
 
-        <div id="div_id_lastname" class="form-group required">
-            <label for="id_lastname" class="control-label col-md-4 requiredField"> Last Name<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" #LName = "ngModel" id="id_lastname" [(ngModel)]="lastName" name="lastName" placeholder="Last Name"
-                    style="margin-bottom: 10px" type="text" required/>
-            </div>
-        </div>
-
-        <div *ngIf="LName.invalid && (LName.dirty || LName.touched)" class="alert alert-danger">Lastname is required</div>
-
-        <div id="div_id_gender" class="form-group required">
-            <label for="id_gender" class="control-label col-md-4 requiredField"> Gender<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 " style="margin-bottom: 10px">
-                <label class="radio-inline">
-                    <input type="radio" [(ngModel)]="gender" name="gender" id="id_gender_1" value="M" style="margin-bottom: 10px">Male</label>
-                <label class="radio-inline">
-                    <input type="radio" name="gender" id="id_gender_2" value="F" style="margin-bottom: 10px; margin-left: 15px">Female
+        <form class="form-horizontal " #f="ngForm" (ngSubmit)="register(f)">
+            <h3 class="text-danger">REGISTER HERE!</h3>
+            <div id="div_id_name" class="form-group required">
+                <label for="id_name" class="control-label col-md-4 requiredField"> First Name<span class="asteriskField">*</span>
                 </label>
+                <div class="controls col-md-8 ">
+                    <input class=" form-control" required minlength="3" [(ngModel)]="firstName" name="firstName"
+                        placeholder="First name" #fName="ngModel" style="margin-bottom: 10px" type="text" />
+                    <div class="alert alert-danger" *ngIf="fName.touched && !fName.valid">
+                        <div *ngIf="fName.errors.required">
+                            First name is required</div>
+                        <div *ngIf="fName.errors.minlength">
+                            First name is minimun 3 characters</div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        
-
-        <div id="div_id_age" class="form-group required">
-            <label for="id_age" class="control-label col-md-4 requiredField"> Age<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" id="id_age" [(ngModel)]="age" name="age" placeholder="Age" style="margin-bottom: 10px"
-                    type="number" />
+            <div id="div_id_name" class="form-group required">
+                <label for="id_name" class="control-label col-md-4 requiredField"> Last Name<span class="asteriskField">*</span>
+                </label>
+                <div class="controls col-md-8 ">
+                    <input required class="form-control" minlength="3" [(ngModel)]="lastName" name="lastName" placeholder="Last Name"
+                        style="margin-bottom: 10px" type="text" #lName="ngModel" />
+                    <div class="alert alert-danger" *ngIf="lName.touched && !lName.valid">
+                        <div *ngIf="lName.errors.required">
+                            Last name is required</div>
+                        <div *ngIf="lName.errors.minlength">
+                            Last name is minimun 3 characters</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="div_id_location" class="form-group required">
-            <label for="id_location" class="control-label col-md-4 requiredField"> Address<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" id="id_location" [(ngModel)]="address" name="address" placeholder="address"
-                    style="margin-bottom: 10px" type="text" />
+            <div id="div_id_gender" class="form-group required">
+                <label for="id_gender" class="control-label col-md-4 requiredField"> Gender<span class="asteriskField">*</span>
+                </label>
+                <div class="controls col-md-8 " style="margin-bottom: 10px">
+                    <label class="radio-inline">
+                        <input type="radio" [(ngModel)]="gender" name="gender" value="M" style="margin-bottom: 10px"
+                            required>Male</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" id="id_gender_2" value="F" style="margin-bottom: 10px; margin-left: 15px"
+                            required>Female
+                    </label>
+                </div>
             </div>
-        </div>
-        <div id="div_id_number" class="form-group required">
-            <label for="id_number" class="control-label col-md-4 requiredField"> Mobile Number<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" id="id_number" [(ngModel)]="phoneNo" name="phoneNo" placeholder="provide your contact number"
-                    style="margin-bottom: 10px" type="text" />
+            <div id="div_id_location" class="form-group required">
+                <label for="id_location" class="control-label col-md-4 requiredField"> Age<span class="asteriskField">*</span>
+                </label>
+                <div class="controls col-md-8 ">
+                    <input class="form-control" [(ngModel)]="age" name="age" placeholder="Age" style="margin-bottom: 10px"
+                        type="number"  required  #agee="ngModel" pattern="[1-9][1-9]"/>
+                        <div class="alert alert-danger" *ngIf="agee.touched && !agee.valid">
+                                <div *ngIf="agee.errors.required">
+                                    Age should be between 15 and 60</div>
+                                <!-- <div *ngIf="agee.errors.min">
+                                    Age is minimun 15 years</div> -->
+                            </div>
+                </div>
             </div>
-        </div>
-        <div id="div_id_email" class="form-group required">
-            <label for="id_email" class="control-label col-md-4 requiredField"> E-mail<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md emailinput form-control" id="id_email" [(ngModel)]="email" name="email" placeholder="Your current email address"
-                    style="margin-bottom: 10px" type="email" />
+            <div id="div_id_location" class="form-group required">
+                <label for="id_location" class="control-label col-md-4 requiredField"> Address </label>
+                <div class="controls col-md-8 ">
+                    <input required minlength="5" class="form-control" [(ngModel)]="address" name="address" placeholder="address"
+                        style="margin-bottom: 10px" type="text" #add="ngModel" />
+                    <div class="alert alert-danger" *ngIf="add.touched && !add.valid">
+                        <div *ngIf="add.errors.required">
+                            Address is required</div>
+                        <div *ngIf="add.errors.minlength">
+                            Address is minimun 5 characters</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="div_id_password1" class="form-group required">
-            <label for="id_password1" class="control-label col-md-4 requiredField">Password<span class="asteriskField">*</span>
-            </label>
-            <div class="controls col-md-8 ">
-                <input class="input-md textinput textInput form-control" id="id_password1" name="password" [(ngModel)]="password" placeholder="Create a password"
-                    style="margin-bottom: 10px" type="password" />
+            <div id="div_id_number" class="form-group required">
+                <label for="id_number" class="control-label col-md-4 requiredField"> Mobile Number<span class="asteriskField">*</span>
+                </label>
+                <div class="controls col-md-8 ">
+                    <input class="form-control" pattern=".{9,10}" [(ngModel)]="phoneNo"  size="10" name="phoneNo"
+                        placeholder="provide your contact number" style="margin-bottom: 10px" type="number" required #mobno="ngModel" />
+                    <div class="alert alert-danger" *ngIf="mobno.touched && !mobno.valid">
+                        <div *ngIf="mobno.errors.required">
+                            Mobile Number is required</div>
+                        <div *ngIf="mobno.errors.pattern">
+                            Mobile Number is minimun 9 and maximum 10 characters</div>
+    
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="aab controls col-md-4 "></div>
-            <div class="controls col-md-8 ">
-                <input type="submit" value="Signup" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+            <div id="div_id_email" class="form-group required">
+                <label for="id_email" class="control-label col-md-4 requiredField"> E-mail </label>
+                <div class="controls col-md-8 ">
+                    <input class="form-control" [(ngModel)]="email" name="email" placeholder="Your current email address"
+                        style="margin-bottom: 10px" type="email" #e_mail="ngModel" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
+                        required />
+                    <div class="alert alert-danger" *ngIf="e_mail.touched && !e_mail.valid">
+                        <div *ngIf="e_mail.errors.required">
+                            Email id is required</div>
+                        <div *ngIf="e_mail.errors.pattern">
+                            Email pattern doesn't match</div>
+    
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+            <div id="div_id_password1" class="form-group required">
+                <label for="id_password1" class="control-label col-md-4 requiredField">Password<span class="asteriskField">*</span>
+                </label>
+                <div class="controls col-md-8 ">
+                    <input class="form-control" required name="password" [(ngModel)]="password" placeholder="Create a password"
+                        style="margin-bottom: 10px" type="password" #passwd="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                    <div class="alert alert-danger" *ngIf="passwd.touched && !passwd.valid">
+                        <div *ngIf="passwd.errors.required">
+                            Password is required</div>
+                        <div *ngIf="passwd.errors.pattern">
+                                must contain 8 characters,at least one number, and one uppercase and lowercase letter</div>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="aab controls col-md-4 "></div>
+                <div class="controls col-md-8 ">
+                    <input type="submit" value="Signup" class="btn btn-primary btn btn-info" id="submit-id-signup" [disabled]="!f.valid"/>
+                </div>
+            </div>
+        </form>
+    </div>

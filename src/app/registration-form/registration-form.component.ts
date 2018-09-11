@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class RegistrationFormComponent implements OnInit {
   register(f) {
     console.log(f.value);
-    let obs = this.http.post("http://localhost:8090/Customers/add", f.value);
+    console.log(f.value.email);
+    let obs = this.http.post("http://localhost:8090/Customers/add/"+f.value.email,f.value);
     obs.subscribe(() => { });
   }
   constructor(private http: HttpClient) { }

@@ -1,56 +1,100 @@
 <div class="home">
-	<!-- Image by https://unsplash.com/@peecho -->
-	<div class="home_background parallax-window" style="background-image:url(../assets/images/vf.jpg)"></div>
-
-</div>
-
-<div class="contact" style="margin-left: 90px">
-	<link rel="stylesheet" type="text/css" href="../assets/css/contact_styles.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/contact_responsive.css">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="contact_title">Any Queries ? Contact us</div>
-				<div class="contact_subtitle">Get in touch</div>
-			</div>
-		</div>
-		<div class="row contact_content">
-			<div class="col-lg-5">
-				<div class="contact_text">
-					<p>We are happy to asisst you. We have highly professional team to handle your queries and replies as soon as possible.
-						</p>
+		<!-- Image by https://unsplash.com/@peecho -->
+		<div class="home_background parallax-window" style="background-image:url(../assets/images/vf.jpg)"></div>
+	
+	</div>
+	
+	<div class="contact" style="margin-left: 90px">
+		<link rel="stylesheet" type="text/css" href="../assets/css/contact_styles.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/contact_responsive.css">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="contact_title">Any Queries ? Contact us</div>
+					<div class="contact_subtitle">Get in touch</div>
 				</div>
-				<div class="contact_info">
-					<div class="contact_info_box">i</div>
-					<div class="contact_info_container">
-						<div class="contact_info_content">
-							<ul>
-								<li>Address: Hattisar , Kathmandu , Nepal</li>
-								<li>Phone: +977 01425639</li>
-								<li>Email: query@happytrip.com</li>
-							</ul>
+			</div>
+			<div class="row contact_content">
+				<div class="col-lg-5">
+					<div class="contact_text">
+						<p>We are happy to asisst you. We have highly professional team to handle your queries and replies as soon as
+							possible.
+						</p>
+					</div>
+					<div class="contact_info">
+						<div class="contact_info_box">i</div>
+						<div class="contact_info_container">
+							<div class="contact_info_content">
+								<ul>
+									<li>Address: Hattisar , Kathmandu , Nepal</li>
+									<li>Phone: +977 01425639</li>
+									<li>Email: query@happytrip.com</li>
+								</ul>
+							</div>
+	
 						</div>
-
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<h4 *ngIf="has_Submitted">
+						<div class="alert alert-success"> Your Query has been submitted. We will get in touch with you shortly</div>
+					</h4>
+					<div class="contact_form_container">
+						<form #form="ngForm" (ngSubmit)="sendMessage(form); form.reset()" id="contact_form" class="clearfix">
+							<div>
+								<input name="userName" [(ngModel)]="userName" minlength="3"  id="contact_input_name" class="contact_input contact_input_name form-control"
+								 type="text" placeholder="Name" #uname="ngModel" required>
+								 <div class="alert alert-danger" *ngIf="uname.touched && !uname.valid" style="margin-bottom: 10px">
+										<div *ngIf="uname.errors.required">
+											Name is required</div>
+										<div *ngIf="uname.errors.minlength">
+											Name is minimun 3 characters
+										</div>
+								</div>
+							</div>
+							<div>
+								<input name="email" [(ngModel)]="email" id="contact_input_email" class="contact_input contact_input_email form-control" type="email"
+								 placeholder="E-mail" required  #e_mail="ngModel" 
+								pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$">
+								 
+								 <div class="alert alert-danger" *ngIf="e_mail.touched && !e_mail.valid" style="margin-bottom: 10px">
+										<div *ngIf="e_mail.errors.required">
+											Email id is required</div>
+										<div *ngIf="e_mail.errors.pattern">
+											Email pattern doesn't match
+										</div>
+					
+									</div>
+							</div>
+							<div>
+								<input name="subject" [(ngModel)]="subject" id="contact_input_subject" class="contact_input contact_input_subject form-control"
+								 type="text" placeholder="Subject" minlength="5" required #sub="ngModel">
+								 <div class="alert alert-danger" *ngIf="sub.touched && !sub.valid" style="margin-bottom: 10px">
+										<div *ngIf="sub.errors.required">
+											Please provide Subject</div>
+										<div *ngIf="sub.errors.minlength">
+											Subject is minimun 5 characters
+										</div>
+								</div>
+							</div>
+							<div>
+								<textarea name="message" [(ngModel)]="message" id="contact_input_message" class="contact_message_input contact_input_message form-control"
+								 placeholder="Message" required #msg="ngModel" style="margin-bottom: 10px"
+								  maxlength="250"
+								 ></textarea>
+								 <div class="alert alert-danger" *ngIf="msg.touched && !msg.valid" style="margin-bottom: 10px">
+										<div *ngIf="msg.errors.required">
+											Please fill your Query</div>
+										<div *ngIf="msg.errors.minlength">
+											Query should be maximum 250 characters
+										</div>
+								</div>
+							</div>
+							<button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit" [disabled]="!form.valid">Submit</button>
+						</form>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-7">
-				<h4 *ngIf="has_Submitted">
-					<div class="alert alert-success"> Your Query has been submitted. We will get in touch with you shortly</div>
-				</h4>
-				<div class="contact_form_container">
-					<form #form="ngForm" (ngSubmit)="sendMessage(form); form.reset()" id="contact_form" class="clearfix">
-						<input name="userName" [(ngModel)]="userName" id="contact_input_name" class="contact_input contact_input_name" type="text"
-						 placeholder="Name" required="required" data-error="Name is required.">
-						<input name="email" [(ngModel)]="email" id="contact_input_email" class="contact_input contact_input_email" type="email" placeholder="E-mail"
-						 required="required" data-error="E-mail is required.">
-						<input name="subject" [(ngModel)]="subject" id="contact_input_subject" class="contact_input contact_input_subject" type="text"
-						 placeholder="Subject">
-						<textarea name="message" [(ngModel)]="message" id="contact_input_message" class="contact_message_input contact_input_message"
-						 placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-						<button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>
-					</form>
-				</div>
-			</div>
-		</div>
 		<div class="row contact_map">
+	
+	</div>
