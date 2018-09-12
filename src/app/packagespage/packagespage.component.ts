@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { createElementCssSelector } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-packagespage',
@@ -10,9 +12,10 @@ export class PackagespageComponent implements OnInit {
   list: any;
   user = "Dummy Customer";
   has_Booked = '';
+  check:boolean;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,protected router:Router) { }
 
   onBooked(l) {
 
@@ -20,8 +23,19 @@ export class PackagespageComponent implements OnInit {
     const body = { PackageTrip: l, user: this.user };
     console.log(body);
     this.has_Booked = '';
+    this.check=(confirm("Press Ok to Confirm Your Booking"));
+    console.log(this.check);
+    if(this.check===true){
+      console.log("booked");
     let obs = this.http.post("http://localhost:8090/Booking/add", body);
     obs.subscribe(() => { });
+    this.router.navigate(['/dashboard/bookings']);
+    }
+    else{
+      console.log("cancelled");
+    }
+    
+    
   }
 
 

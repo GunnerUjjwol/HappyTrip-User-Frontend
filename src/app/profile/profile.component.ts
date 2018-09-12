@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProfileComponent implements OnInit {
   currentUser={};
-  email='e';
+  email='ujjwol.dandekhya@verscend.com';
  
 
   constructor(private http:HttpClient) { }

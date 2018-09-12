@@ -1,7 +1,7 @@
 <div class="container">
 
 
-        <form class="form-horizontal " #f="ngForm" (ngSubmit)="register(f)">
+        <form class="form-group " #f="ngForm" (ngSubmit)="register(f); f.reset()">
             <h3 class="text-danger">REGISTER HERE!</h3>
             <div id="div_id_name" class="form-group required">
                 <label for="id_name" class="control-label col-md-4 requiredField"> First Name<span class="asteriskField">*</span>
@@ -36,10 +36,10 @@
                 </label>
                 <div class="controls col-md-8 " style="margin-bottom: 10px">
                     <label class="radio-inline">
-                        <input type="radio" [(ngModel)]="gender" name="gender" value="M" style="margin-bottom: 10px"
+                        <input type="radio" [(ngModel)]="gender" name="gender" value="Male" style="margin-bottom: 10px"
                             required>Male</label>
                     <label class="radio-inline">
-                        <input type="radio" name="gender" id="id_gender_2" value="F" style="margin-bottom: 10px; margin-left: 15px"
+                        <input type="radio" name="gender" id="id_gender_2" value="Female" style="margin-bottom: 10px; margin-left: 15px"
                             required>Female
                     </label>
                 </div>
@@ -52,9 +52,11 @@
                         type="number"  required  #agee="ngModel" pattern="[1-9][1-9]"/>
                         <div class="alert alert-danger" *ngIf="agee.touched && !agee.valid">
                                 <div *ngIf="agee.errors.required">
-                                    Age should be between 15 and 60</div>
+                                    Age should be above 10</div>
                                 <!-- <div *ngIf="agee.errors.min">
                                     Age is minimun 15 years</div> -->
+                                    <div *ngIf="agee.errors.pattern">
+                                        Age should be above 10</div>
                             </div>
                 </div>
             </div>
