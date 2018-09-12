@@ -11,16 +11,18 @@ import { Router } from '@angular/router';
 export class PackagespageComponent implements OnInit {
   list: any;
   user = "Dummy Customer";
+
   has_Booked = '';
   check:boolean;
+  startDate:any;
 
 
   constructor(private http: HttpClient,protected router:Router) { }
 
-  onBooked(l) {
-
-
-    const body = { PackageTrip: l, user: this.user };
+  onBooked(l, date) {
+    console.log(date);
+    this.startDate=date;
+    const body = { PackageTrip: l, user: this.user, startDate: this.startDate };
     console.log(body);
     this.has_Booked = '';
     this.check=(confirm("Press Ok to Confirm Your Booking"));

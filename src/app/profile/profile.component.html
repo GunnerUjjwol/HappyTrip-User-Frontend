@@ -10,57 +10,62 @@
           </div>
 
           <div class="card-body">
-            <form class="form" role="form" autocomplete="off">
+            <form class="form" #f = "ngForm" (ngSubmit) = "Update(f)" role="form" autocomplete="off">
+              
+              <!-- this is for update required -->
+              <input type="hidden" name = "id" [(ngModel)] = "currentUser.id">
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">First name</label>
               
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value= "{{currentUser.firstName}}" readonly>
+                  <input class="form-control" name = "firstName" [(ngModel)] = "currentUser.firstName" type="text" value= "{{currentUser.firstName}}" >
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="{{currentUser.lastName}}" readonly>
+                  <input class="form-control" name = "lastName" [(ngModel)] = "currentUser.lastName" type="text" value="{{currentUser.lastName}}" >
+                </div>
+              </div>
+
+              
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                <div class="col-lg-9">
+                  <input class="form-control" name = "email" [(ngModel)] = "currentUser.email" type="email" value="{{currentUser.email}}" readonly >
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Gender</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="{{currentUser.gender}}" readonly>
+                  <input class="form-control" name = "gender" [(ngModel)] = "currentUser.gender" type="text" value="{{currentUser.gender}}" >
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Age</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="number" value="{{currentUser.age}}" readonly>
-                </div>
+                  <input class="form-control" name = "age" [(ngModel)] = "currentUser.age" type="number" value="{{currentUser.age}}" >
+                </div> 
               </div>
 
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Address</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="text" value="{{currentUser.address}}" readonly>
+                  <input class="form-control" name = "address" [(ngModel)] = "currentUser.address" type="text" value="{{currentUser.address}}" >
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">Mobile Number</label>
                 <div class="col-lg-9">
-                  <input class="form-control" type="number" value="{{currentUser.phoneNo}}" readonly>
+                  <input class="form-control" name = "phoneNo" [(ngModel)] = "currentUser.phoneNo" type="number" value="{{currentUser.phoneNo}}" >
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="email" value="{{currentUser.email}}" readonly>
-                </div>
-              </div>
-        
+              <button  id = "updateButton" class = "btn btn-success" type="submit" >Update</button>
           </form>
         </div>
       </div>
