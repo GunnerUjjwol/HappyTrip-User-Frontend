@@ -1,3 +1,4 @@
+
 <div class="home">
   <div class="home_background" style="background-image:url(../assets/images/about_back.jpg)"></div>
 
@@ -21,14 +22,15 @@
           <div class="item clearfix rating_5" *ngFor="let l of list">
             <div class="item_image"><img src={{l.imagesLocation}} width="278px" height="162px"></div>
             <div class="item_content">
-              <div class="item_price">From {{l.price}}</div>
+              <div class="item_price">From {{l.price | currency : 'NPR' : 'symbol' :'1.0' }}</div>
               <div class="item_title" >{{l.location}}</div> 
               
               <ul>
                 <li float:left style="width: auto; " >{{l.days}} Days  </li>
-                <li float:left style="width: auto; " >  Pick A Date: <input name="date" [(ngModel)]="date" #startdate="ngModel" type="date"> </li>
+                <li float:left style="width: auto; "  >  Pick A Date: <input name="date" [(ngModel)]="date" #startdate="ngModel" 
+                  type="date" min="{{mindate | date:'yyyy-MM-dd'}}" max="{{maxdate | date:'yyyy-MM-dd'}}"> </li>{{today}}
                 <!-- <li >{{date}}</li> -->
-                <!-- <li>4 nights</li>0
+                <!-- <li>4 nights</li>
 									<li>3 star hotel</li> -->
               </ul>
 

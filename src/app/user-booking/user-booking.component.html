@@ -17,7 +17,7 @@
         <td>{{book.price}}</td>
         <td>{{book.bookedstatus}}</td>
         
-        <th><button class="btn btn-danger" (click)="cancelPackage(package)">Cancel</button></th>
+        <th *ngIf="book.bookedstatus != 'CANCELLED'"><button class="btn btn-danger" (click)="cancelBooking(book)">Cancel</button></th>
         
       </tr>
     </table>

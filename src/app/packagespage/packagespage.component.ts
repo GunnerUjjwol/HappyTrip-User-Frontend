@@ -15,6 +15,10 @@ export class PackagespageComponent implements OnInit {
   has_Booked = '';
   check:boolean;
   startDate:any;
+  //Date.now() returns number in milliseconds since Jan1, 1970
+  //User can choose the trip starting date to be at least after two days of current date and not after 90 days
+  mindate: number = Date.now() +  2*24*60*60*1000 ; 
+  maxdate: number = Date.now() +  90*24*60*60*1000 ;
 
 
   constructor(private http: HttpClient,protected router:Router) { }

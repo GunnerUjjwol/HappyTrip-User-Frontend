@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-booking',
@@ -9,8 +10,21 @@ import { HttpClient } from '@angular/common/http';
 export class UserBookingComponent implements OnInit {
   user=1;
   UserBookings:any;
+  currentpckg:any;
+  check:boolean;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
+
+  cancelBooking(pckg){
+    this.currentpckg=pckg;
+    console.log(this.currentpckg.startDate);
+    this.check=(confirm("Are you sure you want to cancel the package?"));
+    if(this.check===true){
+    this.http.get('http://localhost:8090/Booking/cancel/' + this.currentpckg.bookId )
+    .subscribe(()=>{ });
+    
+    }
+  }
 
   ngOnInit() {
     let obs= this.http.get('http://localhost:8090/Customers/getBooking/'+ this.user);
