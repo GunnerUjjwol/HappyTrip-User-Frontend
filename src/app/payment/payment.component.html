@@ -1,0 +1,27 @@
+<form>
+  <h3>Name: {{currentUser.firstName}} {{currentUser.lastName}}</h3><br>
+  <hr>
+  <table>
+    <tr>
+      <th>Loaction</th>
+      <th>bookedDate</th>
+      <th>booked status</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    <tr *ngFor = "let book of currentUser.bookings">
+        <td>{{book.location}}</td>
+        <td>{{book.bookedDate | date:'mm/dd/yyyy'}}</td>
+        <td>{{book.bookedstatus}}</td>
+        <td>{{book.price}}</td>
+    </tr> 
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total:{{total_price}}</td>
+    </tr>
+  </table>
+  
+  
+</form>

@@ -16,9 +16,9 @@ img {width:100%;}
 /**************** Banner Slider Carousel **************/
 .carousel-inner img {width: 100%;}
 .carousel-caption {color:#000;top:110px; bottom: auto; text-align:left;}
-.carousel-caption h1 { color:#dd0000; background-color:#;}
+.carousel-caption h1 { color:#dd0000; background-color:#213123;}
 /************ Services **************/
-.most-car-box:hover {background: ; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+.most-car-box:hover {background: #213123; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
 /*********** TABS *******/
 .nav-tabs { border-bottom: 1px solid #ccc; }
 .nav-tabs .nav-link.active {
