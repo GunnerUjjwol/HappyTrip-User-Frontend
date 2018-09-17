@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AppHttpInterceptor } from '../app-http-interceptor';
 
 @Component({
   selector: 'app-registration-form',
@@ -13,13 +14,13 @@ result:any;
   register(f) {
     console.log(f.value);
     console.log(f.value.email);
-    let obs = this.http.post("http://localhost:8090/Customers/add/"+f.value.email,f.value);
+    let obs = this.http.post("http://localhost:8090/Customers/add/"+f.value.email,f.value, { headers: { [AppHttpInterceptor.SKIP_TOKEN]: '' } });
     obs.subscribe((response) => {
       console.log(response);
       this.result=response;
       console.log(this.result.register);
       if(this.result.register==="yes"){
-        this.router.navigate(['/dashboard/profile']);
+        this.router.navigate(['/login']);
         alert("Successfully Registered!!");
         
       }

@@ -20,8 +20,10 @@
               <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/about-us']">About us</a></li>
               <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/packages']">Package</a></li>
               <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/contact-us']">Contact</a></li>
-              <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']">Dashboard</a></li>
-              <li class="main_nav_item " ><a data-toggle="modal" data-target="#exampleModal" href=#>Login</a></li>
+              <li class="main_nav_item " *ngIf = "loginToken != null && loginToken !== ''" [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+              <li class="main_nav_item " *ngIf = "loginToken == null || loginToken === ''" [routerLinkActive]="['active']"><a [routerLink]="['/login']" >Login</a></li>
+              <li class="main_nav_item " *ngIf = "loginToken == null || loginToken === ''" [routerLinkActive]="['active']"><a [routerLink]="['/register']" >Register</a></li>
+
               <!-- <li class="main_nav_item "  [routerLinkActive]="['active']"><a [routerLink]="['/register']">Register</a></li> -->
             </ul>
           </nav>
@@ -45,7 +47,7 @@
   </div>
 
   <!-- Menu Items -->
-  <div class="menu_inner menu_mm">
+  <!-- <div class="menu_inner menu_mm">
     <div class="menu menu_mm">
       <ul class="menu_list menu_mm">
         <li class="menu_item menu_mm"><a href="#">Home</a></li>
@@ -57,23 +59,10 @@
       </ul>
     </div>
 
-  </div>
+  </div> -->
 
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <app-loginform></app-loginform>
-      </div>
-      <div class="modal-footer">
-				<button class="form-control btn btn-primary">Log In</button>
-    </div>
-  </div>
-</div>
+
+
+  
+  

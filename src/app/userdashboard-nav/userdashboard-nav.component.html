@@ -19,7 +19,7 @@
         <li [routerLinkActive]="['active']"><a [routerLink]="['./profile']"><h6>My Profile </h6></a></li>
         <li [routerLinkActive]="['active']"><a [routerLink]="['./bookings']"> <h6>Bookings</h6> </a></li>
         <li [routerLinkActive]="['active']"><a [routerLink]="['./price']"> <h6>My Price</h6> </a></li>
-        <li [routerLinkActive]="['active']"><a href="#"> <h6>Logout</h6> </a></li>
+        <li [routerLinkActive]="['active']"><a href="#" (click)="Logout()"> <h6>Logout</h6> </a></li>
       </ul>
     </nav>
 

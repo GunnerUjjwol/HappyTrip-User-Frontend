@@ -24,20 +24,27 @@
 
 // }
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { TokenServiceService } from '../token-service.service';
+import { AppHttpInterceptor } from '../app-http-interceptor';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppHttpInterceptor,
+    multi: true
+  }]
 })
 export class ProfileComponent implements OnInit {
   currentUser={};
-  email='ujjwol.dandekhya@verscend.com';
+  loginToken:String;
  
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http:HttpClient,private router:Router,private tokenService:TokenServiceService) { }
   Update(form){
     let obs = this.http.put("http://localhost:8090/Customers/update",form.value).subscribe(()=>{
       this.router.navigate(['/dashboard/profile']);
@@ -45,12 +52,16 @@ export class ProfileComponent implements OnInit {
     console.log(form.value);
   }
   ngOnInit() {
-    let obs= this.http.get('http://localhost:8090/Customers/user/'+ this.email);
+    console.log("On init");
+    
+  
+
+    let obs= this.http.get('http://localhost:8090/Customers/user/');
     obs.subscribe((response) => {
       this.currentUser = response;
       console.log(this.currentUser);
       
-    })
+    });
+  
   }
-
 }

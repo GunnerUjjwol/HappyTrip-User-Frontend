@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AppHttpInterceptor } from '../app-http-interceptor';
 
 @Component({
   selector: 'app-user-booking',
   templateUrl: './user-booking.component.html',
-  styleUrls: ['./user-booking.component.css']
+  styleUrls: ['./user-booking.component.css'],
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppHttpInterceptor,
+    multi: true,
+    
+  }]
 })
 export class UserBookingComponent implements OnInit {
   user=1;
@@ -27,7 +34,7 @@ export class UserBookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    let obs= this.http.get('http://localhost:8090/Customers/getBooking/'+ this.user);
+    let obs= this.http.get('http://localhost:8090/Customers/getBooking');
     obs.subscribe((response) => {
       this.UserBookings = response;
       console.log(this.UserBookings);

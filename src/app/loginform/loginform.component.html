@@ -1,4 +1,4 @@
-<form role="form" #f="ngForm" (ngSubmit)="login(f)">
+<!-- <form role="form" #f="ngForm" (ngSubmit)="login(f)">
     <div class="form-group">
         <div class="input-group required">
             <input type="email" [(ngModel)]="email" #e_mail="ngModel" 
@@ -12,20 +12,20 @@
                 <div *ngIf="e_mail.errors.pattern">
                     Email pattern doesn't match</div>
         
-    </div> <!-- /.form-group -->
+    </div> 
 </div>
     <div class="form-group">
         <div class="input-group required">
             <input type="password" [(ngModel)]="password" #passwd="ngModel"
             name="password" class="form-control" id="uPassword" placeholder="Password" required>
             <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
-        </div> <!-- /.input-group -->
+        </div> 
         <div class="alert alert-danger" *ngIf="passwd.touched && !passwd.valid">
             <div *ngIf="passwd.errors.required">
                 Password is required</div>
            
         </div>
-    </div> <!-- /.form-group -->
+    </div> 
 
     <div class="registerLink">
         <label>
@@ -33,10 +33,45 @@
         </label>
     </div>
 
-    <!-- <div class="checkbox">
-        <label>
-            <input type="checkbox"> Remember me
-        </label>
-    </div> -->
-     <!-- /.checkbox -->
-</form>
+    
+</form> -->
+
+
+<div class="container">
+
+    <form class="form-group" #f="ngForm" (ngSubmit)="login(f)">
+      <h3 class="form-signin-heading">User Login</h3>
+      <div class="form-group">
+            <div class="input-group required">
+      <label for="inputEmail" class="input-group-addon glyphicon glyphicon-user" ></label>
+
+      <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" 
+      pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" #e_mail="ngModel" name="email" placeholder="Email address" required autofocus>
+     
+    </div>
+      <div class="alert alert-danger" *ngIf="e_mail.touched && !e_mail.valid">
+            <div *ngIf="e_mail.errors.required">
+                Email id is required</div>
+            <div *ngIf="e_mail.errors.pattern">
+                Email pattern doesn't match</div>
+    
+</div>
+    </div>
+    <div class="form-group">
+            <div class="input-group required">
+      <label for="inputPassword" class="input-group-addon glyphicon glyphicon-lock" ></label>
+      <input type="password" [(ngModel)]="password" #passwd="ngModel"
+      name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      </div>
+      <div class="alert alert-danger" *ngIf="passwd.touched && !passwd.valid">
+            <div *ngIf="passwd.errors.required">
+                Password is required</div>
+           
+        </div>
+    </div>
+<br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!f.valid">Sign in</button>
+    
+    </form>
+
+  </div>
